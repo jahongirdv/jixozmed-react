@@ -2,18 +2,8 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 
 const users = [
-  { login: 'jahondv',       name: 'Администратор системы',                 role: 'Администратор', region: 'Минздрав РУз',                  phone: '998777592055' },
-  { login: 'b.djamuratov',  name: 'DJAMURATOV BATIRBEK MURATBAEVICH',     role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'n.barlikov',    name: 'BARLIKOV NAURZBAY KAMALATDINOVICH',   role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'q.isakov',      name: 'ISAKOV QUWAT RUSTEMBAY ULI',           role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 's.doshniyazov', name: 'DOSHNIYAZOV SALAMAT ORINBAYEVICH',    role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'b.erimbetov',   name: 'ERIMBETOV BEKJAN NURJANOVICH',        role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'd.asanov',      name: 'ASANOV DAMIR KUANDIKOVICH',            role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
+  { login: 'jahondv',       name: 'Администратор системы',                 role: 'Администратор', region: 'Минздрав РУз', phone: '998777592055' },
   { login: 't.rasulov',     name: 'RASULOV TIMUR VLADIMIROVICH',          role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'b.utemisov',    name: 'UTEMISOV BAXRAM KEUNIMJAEVICH',        role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'm.jadigerov',   name: 'JADIGEROV MANSUR TOKTARBAEVICH',       role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 'm.erjanov',     name: 'ERJANOV MARAT SAGALATDINOVICH',        role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null },
-  { login: 's.soy',         name: 'SOY SERGEY VYACHESLAVOVICH',           role: 'Регион админ',  region: "Qoraqalpog'iston Respublikasi", phone: null }
 ];
 
 const esc = (v) => v === null ? 'NULL' : `'${v.replace(/'/g, "''")}'`;

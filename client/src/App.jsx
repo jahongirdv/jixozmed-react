@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import AdminPage from './pages/AdminPage';
 import MapPage from './pages/MapPage';
+import EquipmentPage from './pages/EquipmentPage';
 import AppLayout from './layouts/AppLayout';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/map" element={<MapPage />} />
+	  <Route path="/equipment" element={<EquipmentPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/login" replace />} />

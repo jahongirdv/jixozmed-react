@@ -1,4 +1,4 @@
-nano ~/jixozmed-new/client/src/main.jsximport { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { logout } from '../api/auth';
 
 export default function DashboardPage() {
@@ -11,33 +11,51 @@ export default function DashboardPage() {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh', background: '#0a1628', color: '#e6edf5',
-      padding: '40px', fontFamily: 'system-ui, sans-serif',
-    }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h1 style={{ color: '#4d94e8', marginBottom: '8px' }}>JixozMed — Dashboard</h1>
-        <p style={{ color: '#94a9c2', marginBottom: '32px' }}>
-          Добро пожаловать, <b style={{ color: '#e6edf5' }}>{user.name || 'пользователь'}</b>
+    <main>
+      <header style={{ marginBottom: '28px' }}>
+        <h1 style={{ fontSize: '28px', fontWeight: 700, margin: '0 0 6px', color: '#e6edf5' }}>
+          Главная
+        </h1>
+        <p style={{ fontSize: '14px', color: '#7d92ab', margin: 0 }}>
+          Добро пожаловать, {user.name || 'пользователь'}
         </p>
+      </header>
 
+      <div style={{
+        background: '#0f1e33',
+        padding: '28px',
+        borderRadius: '20px',
+        border: '1px solid rgba(255,255,255,0.06)',
+        maxWidth: '1200px',
+      }}>
         <div style={{
-          background: '#0f1e33', padding: '24px', borderRadius: '16px',
-          border: '1px solid rgba(255,255,255,0.06)', marginBottom: '24px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: '16px',
         }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            <div><span style={{ color: '#7d92ab' }}>Логин:</span> {user.login}</div>
-            <div><span style={{ color: '#7d92ab' }}>Роль:</span> {user.role}</div>
-            <div><span style={{ color: '#7d92ab' }}>Регион:</span> {user.region}</div>
-          </div>
+          <InfoRow icon="fa-user" label="Логин" value={user.login} />
+          <InfoRow icon="fa-shield-alt" label="Роль" value={user.role} />
+          <InfoRow icon="fa-map-marker-alt" label="Регион" value={user.region} />
         </div>
+      </div>
+    </main>
+  );
+}
 
-        <button onClick={handleLogout} style={{
-          background: '#1e5ec9', color: '#fff', border: 'none',
-          padding: '12px 24px', borderRadius: '12px', cursor: 'pointer', fontSize: '15px',
-        }}>
-          <i className="fas fa-sign-out-alt"></i> Выйти
-        </button>
+function InfoRow({ icon, label, value }) {
+  return (
+    <div style={{
+      background: '#16273d', padding: '16px',
+      borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)',
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: '8px',
+        color: '#7d92ab', fontSize: '12px', marginBottom: '6px',
+      }}>
+        <i className={`fas ${icon}`}></i> {label}
+      </div>
+      <div style={{ color: '#e6edf5', fontSize: '15px', fontWeight: 500 }}>
+        {value || '—'}
       </div>
     </div>
   );
